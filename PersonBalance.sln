@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonBalance.Web", "PersonBalance.Web\PersonBalance.Web.csproj", "{75EB2265-0C76-49DA-8CDA-4F9D623390CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonBalance.Tests", "PersonBalance.Tests\PersonBalance.Tests.csproj", "{F26E60D0-3662-489D-A320-1F1D7200ED49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75EB2265-0C76-49DA-8CDA-4F9D623390CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75EB2265-0C76-49DA-8CDA-4F9D623390CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75EB2265-0C76-49DA-8CDA-4F9D623390CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75EB2265-0C76-49DA-8CDA-4F9D623390CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F26E60D0-3662-489D-A320-1F1D7200ED49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26E60D0-3662-489D-A320-1F1D7200ED49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26E60D0-3662-489D-A320-1F1D7200ED49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26E60D0-3662-489D-A320-1F1D7200ED49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1930AB78-15D8-4B3C-AB1D-DD2DD3BE09A7}
+	EndGlobalSection
+EndGlobal

@@ -13,5 +13,6 @@ namespace PersonBalance.Web.Services
         Task<Guid> CreateNewPerson(PersonDto dto);
         Task<decimal> CheckBalance(Guid id);
         Task ChangeBalance(Guid id, decimal balance);
+        Task<byte[]> GetPersonVersion(Guid id);
     }
 }

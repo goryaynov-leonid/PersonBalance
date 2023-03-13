@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,10 @@ namespace PersonBalance.Web.Models.Data
         public ApplicationDbContext() : base("DefaultConnection")
         {}
 
-        public DbSet<Person> Persons { get; set; }
+        public ApplicationDbContext(DbConnection connection) : base(connection, false)
+        {
+        }
+
+        public virtual DbSet<Person> Persons { get; set; }
     }
 }

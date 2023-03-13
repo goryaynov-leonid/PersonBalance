@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using PersonBalance.Web.Exceptions;
 using PersonBalance.Web.Models;
 using PersonBalance.Web.Models.Data;
 
@@ -63,20 +65,19 @@ namespace PersonBalance.Web.Services
 
             person.Balance += balance;
 
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new EntityHasChangedException("Person's balance has edited", e);
+            }
         }
 
-        private static PersonDto GetPersonDto(Person person)
+        public async Task<byte[]> GetPersonVersion(Guid id)
         {
-            return new PersonDto
-            {
-                Id = person.Id,
-                Balance = person.Balance,
-                BirthDate = person.BirthDate,
-                Name = person.Name,
-                Patronymic = person.Patronymic,
-                Surname = person.Surname
-            };
+            return (await GetPerson(id)).RowVersion;
         }
     }
 }

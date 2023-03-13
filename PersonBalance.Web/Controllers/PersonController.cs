@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 using System.Web.Http;
+using PersonBalance.Web.Exceptions;
 using PersonBalance.Web.Models;
 using PersonBalance.Web.Services;
 
@@ -30,7 +31,7 @@ namespace PersonBalance.Web.Controllers
             return Json(new {id = await _personService.CreateNewPerson(person.ToDto())});
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IHttpActionResult> Balance(Guid id)
         {
             try
@@ -43,7 +44,7 @@ namespace PersonBalance.Web.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPatch]
         [Route("{id:guid}/changeBalance")]
 
         public async Task<IHttpActionResult> ChangeBalance(Guid id, decimal balance)
@@ -53,13 +54,17 @@ namespace PersonBalance.Web.Controllers
                 await _personService.ChangeBalance(id, balance);
                 return Ok();
             }
-            catch (KeyNotFoundException e)
+            catch (KeyNotFoundException)
             {
                 return NotFound();
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
                 return BadRequest();
+            }
+            catch (EntityHasChangedException)
+            {
+                return Conflict();
             }
         }
     }

@@ -10,7 +10,7 @@ using PersonBalance.Web.Exceptions;
 namespace PersonBalance.Tests.Controllers
 {
     [TestClass]
-    public class ValuesControllerTest
+    public class PersonTest
     {
         [TestMethod]
         public async Task MultiThreadedTest()
